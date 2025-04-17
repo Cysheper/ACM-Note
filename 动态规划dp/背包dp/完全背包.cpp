@@ -26,20 +26,7 @@ const int mod = 998244353;
 const int N = 1e5 + 5;
 
 void solve() {
-    string a, b;
-    cin >> a >> b;
-    vvi dp(sz(a), vi(sz(b)));
-    int mx = 0;
-    for (int i = 1; i <= sz(a); ++ i) {
-        for (int j = 1; j <= sz(b); ++ j) {
-            if (a[i-1] == b[j-1])
-                dp[i][j] = dp[i-1][j-1] + 1;
-            else 
-                dp[i][j] = 0;
-            mx = max(mx, dp[i][j]);
-        }
-    }
-    cout << mx << "\n";
+    
 }
 
 signed main() {
@@ -47,7 +34,7 @@ signed main() {
     cin.tie(0);
     cout.tie(0);
     int _ = 1;
-    // cin >> _;
+    cin >> _;
     while(_--) solve();
     return 0;
 }

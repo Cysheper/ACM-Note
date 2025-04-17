@@ -26,19 +26,18 @@ const int N = 1e5 + 5;
 
 void solve() {
     int n; cin >> n;
-    vector<int> v(n);
+    vi v(n), b(n);
     for(auto& i: v) cin >> i;
-    vector<int> b;
-    b.push_back(v[0]);
+    b.pb(v[0]);
     for(int i = 1; i < n; ++ i) {
         if(v[i] > b.back()) {
-            b.push_back(v[i]);
+            b.pb(v[i]);
         } else {
             int idx = lower_bound(all(b), v[i]) - b.begin();
             b[idx] = v[i];
         }
     }
-    cout << b.size() << "\n";
+    cout << sz(b) << "\n";
 }
 
 signed main() {

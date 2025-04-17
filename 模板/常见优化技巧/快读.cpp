@@ -19,6 +19,7 @@ typedef long double ld;
 #define debug(x) cerr << #x << " = " << x << endl
 typedef pair<int, int> pii;
 typedef vector<int> vi;
+typedef vector<vector<int>> vvi;
 typedef vector<pii> vii;
 const int p = 1e9 + 7;
 const int mod = 998244353;

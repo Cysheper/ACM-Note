@@ -19,6 +19,7 @@ typedef long double ld;
 #define debug(x) cerr << #x << " = " << x << endl
 typedef pair<int, int> pii;
 typedef vector<int> vi;
+typedef vector<vector<int>> vvi;
 typedef vector<pii> vii;
 const int p = 1e9 + 7;
 const int mod = 998244353;
@@ -26,10 +27,10 @@ const int N = 1e5 + 5;
 
 void solve() {
     int n; cin >> n;
-    vector<int> a(n + 1), b(n + 1);
+    vi a(n + 1), b(n + 1);
     for(int i = 1; i <= n; ++ i) cin >> a[i];
     for(int i = 1; i <= n; ++ i) cin >> b[i];
-    vector<vector<int>> dp(n + 1, vector<int>(n + 1));
+    vvi dp(n + 1, vi(n + 1));
     for(int i = 1; i <= n; ++ i) {
         for(int j = 1; j <= n; ++ j) {
             if(a[i-1] == b[j-1]) 
