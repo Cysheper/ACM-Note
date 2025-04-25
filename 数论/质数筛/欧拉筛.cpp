@@ -24,37 +24,23 @@ typedef vector<pii> vii;
 const int p = 1e9 + 7;
 const int mod = 998244353;
 const int N = 1e5 + 5;
-// 牛客竞赛 【模板】多重背包
 
-
-// 二进制优化
-void solve() {
-    vi vv, ww;  // 存体积， 存价值
-    int n, m; cin >> n >> m; // 种数， 总体积
-    int v, w, s; //体积， 价值， 数量
-    for (int i = 1; i <= n; ++ i) {
-        cin >> v >> w >> s;
-        for (int j = 1; j <= s; j <<= 1) {
-            vv.pb(j * v);
-            ww.pb(j * w);
-            s -= j;
-        }
-        if (s) {
-            vv.pb(s * v);
-            ww.pb(s * w);
-        }
-    }    
-    // 01背包
-    vi dp(m + 1);
-    for (int i = 0; i < sz(vv); ++ i) {
-        for (int j = m; j >= vv[i]; -- j) {
-            dp[j] = max(dp[j], dp[j-vv[i]] + ww[i]);
+vector<int> ola(int n) {
+    vector<int> prime;
+    vector<int> vis(n + 5);
+    for (int i = 2; i <= n; ++ i) {
+        if (!vis[i]) prime.push_back(i);
+        for (int j = 1; 1ll * i * prime[j] <= n; ++ j) {
+            vis[i * prime[j]] = 1;
+            if (i % prime[j] == 0) break;
         }
     }
-    cout << dp[m];
+    return prime;
 }
 
-
+void solve() {
+    
+}
 
 signed main() {
     ios::sync_with_stdio(false); 

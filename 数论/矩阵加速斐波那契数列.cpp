@@ -24,44 +24,52 @@ typedef vector<pii> vii;
 const int p = 1e9 + 7;
 const int mod = 998244353;
 const int N = 1e5 + 5;
-// 牛客竞赛 【模板】多重背包
 
-
-// 二进制优化
-void solve() {
-    vi vv, ww;  // 存体积， 存价值
-    int n, m; cin >> n >> m; // 种数， 总体积
-    int v, w, s; //体积， 价值， 数量
-    for (int i = 1; i <= n; ++ i) {
-        cin >> v >> w >> s;
-        for (int j = 1; j <= s; j <<= 1) {
-            vv.pb(j * v);
-            ww.pb(j * w);
-            s -= j;
-        }
-        if (s) {
-            vv.pb(s * v);
-            ww.pb(s * w);
-        }
-    }    
-    // 01背包
-    vi dp(m + 1);
-    for (int i = 0; i < sz(vv); ++ i) {
-        for (int j = m; j >= vv[i]; -- j) {
-            dp[j] = max(dp[j], dp[j-vv[i]] + ww[i]);
-        }
-    }
-    cout << dp[m];
+// 矩阵
+struct matrix {
+    ll c[3][3];
+    matrix() {memset(c, 0, sizeof(c));}
+} F, A; //F为斐波那契矩阵，A为构造矩阵
+/*
+A = [1 1]
+    [1 0]
+*/
+// 矩阵乘法
+matrix operator*(matrix &x, matrix &y) {
+    matrix t; // 临时矩阵
+    for (int i = 1; i <= 2; ++ i) 
+        for (int j = 1; j <= 2; ++ j) 
+            for (int k = 1; k <= 2; ++ k) 
+                t.c[i][j] = (t.c[i][j] + x.c[i][k]*y.c[k][j]) % p;
+    return t;
 }
 
-
+// 快速幂
+void quickpow(ll n) {
+    F.c[1][1] = F.c[1][2] = 1;
+    A.c[1][1] = A.c[1][2] = A.c[2][1] = 1;
+    while(n) {
+        if (n & 1) F = F * A;
+        A = A * A;
+        n >>= 1;
+    }
+}
+void solve() {
+    int n;
+    cin >> n;
+    if (n == 1 || n == 2) cout << 1;
+    else {
+        quickpow(n - 2); // 一定要n - 2
+        cout << F.c[1][1];
+    }
+}
 
 signed main() {
     ios::sync_with_stdio(false); 
     cin.tie(0);
     cout.tie(0);
     int _ = 1;
-    cin >> _;
+    // cin >> _;
     while(_--) solve();
     return 0;
 }

@@ -24,44 +24,38 @@ typedef vector<pii> vii;
 const int p = 1e9 + 7;
 const int mod = 998244353;
 const int N = 1e5 + 5;
-// 牛客竞赛 【模板】多重背包
-
-
-// 二进制优化
-void solve() {
-    vi vv, ww;  // 存体积， 存价值
-    int n, m; cin >> n >> m; // 种数， 总体积
-    int v, w, s; //体积， 价值， 数量
-    for (int i = 1; i <= n; ++ i) {
-        cin >> v >> w >> s;
-        for (int j = 1; j <= s; j <<= 1) {
-            vv.pb(j * v);
-            ww.pb(j * w);
-            s -= j;
-        }
-        if (s) {
-            vv.pb(s * v);
-            ww.pb(s * w);
-        }
-    }    
-    // 01背包
-    vi dp(m + 1);
-    for (int i = 0; i < sz(vv); ++ i) {
-        for (int j = m; j >= vv[i]; -- j) {
-            dp[j] = max(dp[j], dp[j-vv[i]] + ww[i]);
-        }
+void dfs(int u, vvi&dp, vi&w, vvi&G) {
+    dp[u][1] = w[u];
+    for (int i = 0; i < sz(G[u]); ++ i) {
+        int son = G[u][i];
+        dfs(son, dp, w, G);
+        dp[u][0] += max(dp[son][0], dp[son][1]);
+        dp[u][1] += dp[son][0];
     }
-    cout << dp[m];
 }
 
-
+void solve() {
+    int n; cin >> n;
+    vi w(n + 1), fa(n + 1, 0);
+    for (int i = 1; i <= n; ++ i) cin >> w[i];
+    vvi G(n + 1), dp(n + 1, vi(3));
+    for (int i = 0; i < n - 1; ++ i) {
+        int x, y; cin >> x >> y;
+        G[y].push_back(x);
+        fa[x] = 1;
+    }
+    int root = 1;
+    while(fa[root]) root ++;
+    dfs(root, dp, w, G);
+    cout << max(dp[root][0], dp[root][1]);
+}
 
 signed main() {
     ios::sync_with_stdio(false); 
     cin.tie(0);
     cout.tie(0);
     int _ = 1;
-    cin >> _;
+    // cin >> _;
     while(_--) solve();
     return 0;
 }

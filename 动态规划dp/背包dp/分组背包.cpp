@@ -24,37 +24,27 @@ typedef vector<pii> vii;
 const int p = 1e9 + 7;
 const int mod = 998244353;
 const int N = 1e5 + 5;
-// 牛客竞赛 【模板】多重背包
 
-
-// 二进制优化
 void solve() {
-    vi vv, ww;  // 存体积， 存价值
-    int n, m; cin >> n >> m; // 种数， 总体积
-    int v, w, s; //体积， 价值， 数量
+    int n, V; cin >> n >> V;
+    vi v(int(2e5)), w(int(2e5));
+    int s;
+    vi dp(V + 1);
     for (int i = 1; i <= n; ++ i) {
-        cin >> v >> w >> s;
-        for (int j = 1; j <= s; j <<= 1) {
-            vv.pb(j * v);
-            ww.pb(j * w);
-            s -= j;
+        cin >> s;
+        for (int j = 1; j <= s; -- j) {
+            cin >> v[j] >> w[j];
         }
-        if (s) {
-            vv.pb(s * v);
-            ww.pb(s * w);
-        }
-    }    
-    // 01背包
-    vi dp(m + 1);
-    for (int i = 0; i < sz(vv); ++ i) {
-        for (int j = m; j >= vv[i]; -- j) {
-            dp[j] = max(dp[j], dp[j-vv[i]] + ww[i]);
+        for (int j = V; j >= 1; --j) {
+            for (int k = 0; k <= s; ++ k) {
+                if (j >= v[k]) {
+                    dp[j] = max(dp[j], dp[j - v[k]] + w[k]);
+                }
+            }
         }
     }
-    cout << dp[m];
+    cout << dp[V] << "\n";
 }
-
-
 
 signed main() {
     ios::sync_with_stdio(false); 

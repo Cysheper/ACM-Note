@@ -24,37 +24,44 @@ typedef vector<pii> vii;
 const int p = 1e9 + 7;
 const int mod = 998244353;
 const int N = 1e5 + 5;
-// 牛客竞赛 【模板】多重背包
 
-
-// 二进制优化
 void solve() {
-    vi vv, ww;  // 存体积， 存价值
-    int n, m; cin >> n >> m; // 种数， 总体积
-    int v, w, s; //体积， 价值， 数量
+    int n, m; cin >> n >> m;
+    vi a, b, c;
+    int v, w, s;
     for (int i = 1; i <= n; ++ i) {
         cin >> v >> w >> s;
-        for (int j = 1; j <= s; j <<= 1) {
-            vv.pb(j * v);
-            ww.pb(j * w);
-            s -= j;
-        }
-        if (s) {
-            vv.pb(s * v);
-            ww.pb(s * w);
-        }
-    }    
-    // 01背包
-    vi dp(m + 1);
-    for (int i = 0; i < sz(vv); ++ i) {
-        for (int j = m; j >= vv[i]; -- j) {
-            dp[j] = max(dp[j], dp[j-vv[i]] + ww[i]);
+        if (s == 0) {
+            a.pb(v);
+            b.pb(w);
+            c.pb(0);
+        } else {
+            if (s == -1) s = 1;
+            int k = 1;
+            while (s >= k) {
+                a.pb(k * w);
+                b.pb(k * w);
+                c.pb(1);
+                s -= k;
+                k <<= 1;
+            } if(s) {
+                a.pb(s * v);
+                b.pb(s * w);
+                c.pb(1);
+            }
         }
     }
-    cout << dp[m];
+    vi dp(m);
+    for (int i = 1; i < sz(c); ++ i) {
+        if (c[i] == 1) 
+            for (int j = m; j >= a[i]; -- j) 
+                dp[j] = max(dp[j], dp[j-a[i]] + b[i]);
+        else 
+            for (int j = a[i]; j <= m; ++ j)
+                dp[j] = max(dp[j], dp[j-a[i]] + b[i]);
+    }
+    cout << dp[m] << "\n";
 }
-
-
 
 signed main() {
     ios::sync_with_stdio(false); 

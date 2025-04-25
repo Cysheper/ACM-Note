@@ -13,9 +13,7 @@ void solve() {
     for (int i = 1; i <= n / i;++i) {
         if (n % i == 0) {
             st.insert(i);
-            if (i != n / i) {
-                st.insert(n / i);
-            }
+            st.insert(n / i); 
         }
     }
     if(k > st.size()) {
