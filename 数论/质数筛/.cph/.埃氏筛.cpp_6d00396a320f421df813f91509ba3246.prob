@@ -1,0 +1,1 @@
+{"name":"Local: 埃氏筛","url":"d:\\Code\\C++\\src\\数论\\质数筛\\埃氏筛.cpp","tests":[{"id":1745755452828,"input":"100 5\n1\n2\n3\n4\n5","output":"2\n3\n5\n7\n11"}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"d:\\Code\\C++\\src\\数论\\质数筛\\埃氏筛.cpp","group":"local","local":true}
