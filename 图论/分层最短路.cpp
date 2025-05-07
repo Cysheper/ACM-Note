@@ -1,18 +1,11 @@
-/* author: Cysheper */
-#include<bits/stdc++.h>
+#include <bits/stdc++.h>
 using namespace std;
-typedef long long ll;
-typedef unsigned long long ull;
-typedef long double ld;
-#define int ll
-#define yes cout<<"YES\n";
-#define no cout<<"NO\n";
-const int N = 1e5+5, inf = 2147483647;
-
+using ll = long long;
+#define inf 0x3f3f3f3f
 struct Dijkstra {
-    struct Edge { int v, w; };
+    struct node { int v, w; };
     int n;
-    vector<vector<Edge>> G;
+    vector<vector<node>> G;
     vector<int> d, vis, path, cnt;
     Dijkstra(int _n): n(_n) {
         G.assign(n + 1, {});
@@ -64,23 +57,39 @@ struct Dijkstra {
     }
 };
 
+
 void solve() {
-    int n, m, s; cin >> n >> m >> s;
-    Dijkstra dij(n);
-    for (int i = 0; i < m; ++i) {
-        int u, v, w;
-        cin >> u >> v >> w;
-        dij.add(u, v, w);
+    int n, m, k; cin >> n >> m >> k;
+    int s, t; cin >> s >> t;
+
+    Dijkstra dij(n * (k + 1));
+    for(int i = 0, a, b, c; i < m ; ++ i) {
+        cin >> a >> b >> c;
+        dij.add(a, b, c);
+        dij.add(b, a, c);
+
+        for(int j = 1; j <= k; ++ j) {
+            dij.add(a + j * n, b + j * n, c);
+            dij.add(b + j * n, a + j * n, c);
+            dij.add(a + (j - 1) * n, b + j * n, 0);
+            dij.add(b + (j - 1) * n, a + j * n, 0);
+        }
     }
+
     dij.dijkstra(s);
-    for(int i = 1; i <= n; ++i) {
-        cout << dij.d[i] << " ";
-    }
+    int ans = inf;
+    for(int j = 0; j <= k; ++ j) 
+        ans = min(ans, dij.d[t + j * n]);
+
+    cout << ans;
 }
+
 signed main() {
     ios::sync_with_stdio(false); 
-    cin.tie(0);
-    cout.tie(0);
+    cin.tie(nullptr);
+    cout.tie(nullptr);
+
     solve();
+
     return 0;
 }

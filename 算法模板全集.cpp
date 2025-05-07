@@ -257,7 +257,6 @@ class ST {
 class DSU {
     int par[N], rk[N];
     // 初始化n个元素
-public:
     void init(int n) {
         for(int i = 1;i <= n;++i) par[i] = i;
     }

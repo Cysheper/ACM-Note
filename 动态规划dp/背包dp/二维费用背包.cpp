@@ -26,19 +26,18 @@ const int mod = 998244353;
 const int N = 1e5 + 5;
 
 void solve() {
-    int n, V, M;
-    cin >> n >> V >> M;
-    int v, m, w;
-    vvi dp(V, vi(M));
+    int n, H, S;
+    cin >> n >> H >> S;
+    int h, s, w;
+    vvi dp(H + 5, vi(S + 5));
     for (int i = 1; i <= n; ++ i) {
-        cin >> v >> m >> w;
-        for (int j = V; j >= v; -- j) {
-            for (int k = M; k >= m; -- k) {
-                dp[j][k] = max(dp[j][k], dp[j-v][k-m] + w);
-            }
+        cin >> h >> s >> w;
+        for (int j = H; j >= h; -- j) {
+            for (int k = S; k >= s; -- k) {
+                dp[j][k] = max(dp[j][k], dp[j-h][k-s] + w); }
         }
     }
-    cout << dp[V][M] << "\n";
+    cout << dp[H][S] << "\n";
 }
 
 signed main() {
@@ -46,7 +45,7 @@ signed main() {
     cin.tie(0);
     cout.tie(0);
     int _ = 1;
-    cin >> _;
+    // cin >> _;
     while(_--) solve();
     return 0;
 }
