@@ -5,9 +5,9 @@ typedef long long ll;
 typedef unsigned long long ull;
 typedef long double ld;
 #define int ll
-#define yes cout<<"YES\n";
-#define no cout<<"NO\n";
-const int N = 1e5+5, inf = 2147483647;
+#define yes cout << "YES\n";
+#define no cout << "NO\n";
+const int N = 1e5+5, inf = 0x3f3f3f3f;
 
 struct Dijkstra {
     struct Edge { int v, w; };

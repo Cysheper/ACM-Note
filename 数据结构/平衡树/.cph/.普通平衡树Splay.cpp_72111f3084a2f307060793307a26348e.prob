@@ -1,0 +1,1 @@
+{"name":"Local: 普通平衡树Splay","url":"d:\\Code\\C++\\src\\数据结构\\平衡树\\普通平衡树Splay.cpp","tests":[{"id":1748172240842,"input":"6 7\n1 1 4 5 1 4\n2 1\n1 9\n4 1\n5 8\n3 13\n6 7\n1 4\n","output":"6"}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"d:\\Code\\C++\\src\\数据结构\\平衡树\\普通平衡树Splay.cpp","group":"local","local":true}

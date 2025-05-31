@@ -32,22 +32,15 @@ void solve() {
     for (int i = 1; i <= n; ++ i) {
         cin >> v >> w >> s;
         if (s == 0) {
-            a.pb(v);
-            b.pb(w);
-            c.pb(0);
+            a.pb(v);b.pb(w);c.pb(0);
         } else {
             if (s == -1) s = 1;
             int k = 1;
             while (s >= k) {
-                a.pb(k * w);
-                b.pb(k * w);
-                c.pb(1);
-                s -= k;
-                k <<= 1;
+                a.pb(k * w);b.pb(k * w);c.pb(1);
+                s -= k;k <<= 1;
             } if(s) {
-                a.pb(s * v);
-                b.pb(s * w);
-                c.pb(1);
+                a.pb(s * v);b.pb(s * w);c.pb(1);
             }
         }
     }
