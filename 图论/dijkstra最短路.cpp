@@ -13,7 +13,7 @@ struct Dijkstra {
     struct Edge { int v, w; };
     int n;
     vector<vector<Edge>> G;
-    vector<int> d, vis, path, cnt;
+    vector<int> d, vis, path, cnt; // d[i] 表示从起点到 i 的最短距离
     Dijkstra(int _n): n(_n) {
         G.assign(n + 1, {});
         d.assign(n + 1, inf);

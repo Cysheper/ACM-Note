@@ -27,9 +27,7 @@ const int N = 1e5 + 5;
 void solve() {
     int n; cin >> n;
     vi v(n);
-    for(int i = 0; i < n; ++ i) {
-        cin >> v[i];
-    }
+    for(int &i: v) cin >> i;
     vi dp(n, 1);
     int ans = 0;
     for(int i = 0; i < n; ++ i) {

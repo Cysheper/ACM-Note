@@ -1,0 +1,1 @@
+{"name":"Local: AC自动机","url":"d:\\Code\\C++\\src\\字符串\\AC自动机.cpp","tests":[{"id":1748875495496,"input":"5\na\nbb\naa\nabaa\nabaaa\nabaaabaa\n","output":"6\n0\n3\n2\n1\n"}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"d:\\Code\\C++\\src\\字符串\\AC自动机.cpp","group":"local","local":true}

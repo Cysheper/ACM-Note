@@ -1,0 +1,1 @@
+{"name":"Local: P_1449_后缀表达式","url":"d:\\Code\\C++\\src\\常见优化技巧\\单调栈\\P_1449_后缀表达式.cpp","tests":[{"id":1749454242129,"input":"3.5.2.-*7.+@","output":"16"},{"id":1749454257804,"input":"10.28.30./*7.-@","output":"-7"}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"d:\\Code\\C++\\src\\常见优化技巧\\单调栈\\P_1449_后缀表达式.cpp","group":"local","local":true}

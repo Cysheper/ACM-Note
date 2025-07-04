@@ -10,7 +10,7 @@ void qsort(int l, int r, vector<int> &arr) {
     if(l == r) return;
     int i = l - 1, j = r + 1, x = arr[(l+r)>>1];
     while(i < j) {
-        i++;j--;
+        i++; j--;
         while(arr[i] < x) i++;
         while(arr[j] > x) j--;
         if(i < j) swap(arr[i], arr[j]);

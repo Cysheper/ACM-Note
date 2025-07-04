@@ -2,6 +2,7 @@ e = [[] for i in range(1000)]
 vis = [0 for i in range(1000)]
 ans, poi = 0, 0
 def dfs(x, dep):
+    global ans
     vis[x] = 1
     for v in e[x]:
         if vis[x] == 0: dfs(v, dep + 1)

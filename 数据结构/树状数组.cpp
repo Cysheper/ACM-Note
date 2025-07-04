@@ -14,20 +14,27 @@ typedef long double ld;
 #define gt greater
 #define max_ max_element
 #define min_ min_element
-const int MAXN = 500010;
-int n,m;
-int a[MAXN],c[MAXN];
-int lowbit(int x) {
-    return x & (-x);
-}
-int sum(int x) {
-    int res = 0;
-    for(int i = x; i ; i -= lowbit(i)) res += c[i];
-    return res;
-}
-void add(int x,int y) {
-    for(int i = x; i <= n; i += lowbit(i)) c[i] += y;
-}
+struct BIT {
+    const int N = 500010;
+    vector<int> a, c;
+
+    BIT() {
+        a.resize(N);
+        c.resize(N);
+    }
+
+    int lowbit(int x) {
+        return x & (-x);
+    }
+    int sum(int x) {
+        int res = 0;
+        for(int i = x; i ; i -= lowbit(i)) res += c[i];
+        return res;
+    }
+    void add(int x,int y, int n) {
+        for(int i = x; i <= n; i += lowbit(i)) c[i] += y;
+    }
+};
 
 void solve() {
     
