@@ -3,12 +3,13 @@ using namespace std;
 using ll = long long;
 // #define int ll
 
+void dfs(string s) {
+
+}
+
 
 void solve() {
-    pair<pair<int, int>, int> q = {{1, 2}, 2};
-
-    
-
+    string s; cin >> s;
 
 
 }

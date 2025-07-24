@@ -27,7 +27,7 @@ const int N = 1e5 + 5;
 void solve() {
     int n; cin >> n;
     vi v(n), b(n);
-    for(auto& i: v) cin >> i;
+    for(auto &i: v) cin >> i;
     b.pb(v[0]);
     for(int i = 1; i < n; ++ i) {
         if(v[i] > b.back()) {

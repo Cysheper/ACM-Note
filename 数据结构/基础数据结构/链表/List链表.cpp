@@ -2,14 +2,17 @@
 using namespace std;
 using ll = long long;
 // #define int ll
+struct node {
+    int l, r;
+};
 
+template<class T>
+struct List {
+    
+};
 
 void solve() {
-    pair<pair<int, int>, int> q = {{1, 2}, 2};
-
     
-
-
 
 }
 

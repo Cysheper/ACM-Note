@@ -1,0 +1,1 @@
+{"name":"Local: P2678","url":"d:\\Code\\C++\\src\\基础算法\\二分算法\\P2678.cpp","tests":[{"id":1751644029844,"input":"25 5 2 \n2\n11\n14\n17 \n21","output":"4"},{"id":1751644111826,"input":"8 3 1\n2\n4\n7\n\n","output":"2\n"}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"d:\\Code\\C++\\src\\基础算法\\二分算法\\P2678.cpp","group":"local","local":true}

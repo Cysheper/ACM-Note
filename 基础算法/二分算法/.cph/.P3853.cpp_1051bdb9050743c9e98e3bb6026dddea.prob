@@ -1,0 +1,1 @@
+{"name":"Local: P3853","url":"d:\\Code\\C++\\src\\基础算法\\二分算法\\P3853.cpp","tests":[{"id":1751645338101,"input":"101 2 1\n0 101","output":"51"}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"d:\\Code\\C++\\src\\基础算法\\二分算法\\P3853.cpp","group":"local","local":true}

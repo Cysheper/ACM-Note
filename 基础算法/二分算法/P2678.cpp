@@ -6,22 +6,27 @@ using ll = long long;
 
 void solve() {
     int n, num, m; cin >> n >> num >> m;
-    vector<int> v(num + 1);
-    for(int &i: v) cin >> i;
-    int l = 0, r = n + 1;
-    
+    vector<int> v(num + 1, 0);
+    for(int i = 1; i <= num; ++ i) cin >> v[i];
+    v.push_back(n);
+    int l = 0, r = n + 5;
     auto check = [&](int x) -> bool {
-        for(int i = 0; i < num; ++ i) {
-            
+        int last = 0, now = 0;
+        int cnt = 0;
+        for(int i = 1; i <= num + 1; ++ i) {
+            now = v[i];
+            if(now - last >= x) {
+                last = now;
+            } else cnt ++;
         }
+        return cnt <= m;
     };
-
     while(l + 1 < r) {
         int mid = (l + r) >> 1;
         if(check(mid)) l = mid;
         else r = mid;
     }
-
+    cout << l << endl;
 }
 
 signed main() {

@@ -1,0 +1,1 @@
+{"name":"Local: P5076","url":"d:\\Code\\C++\\src\\数据结构\\平衡树\\P5076.cpp","tests":[{"id":1752075524101,"input":"7\n5 1\n5 3\n5 5\n1 3\n2 2\n3 3\n4 3","output":"2\n3\n1\n5\n"}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"d:\\Code\\C++\\src\\数据结构\\平衡树\\P5076.cpp","group":"local","local":true}

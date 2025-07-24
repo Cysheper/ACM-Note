@@ -23,12 +23,12 @@ typedef vector<pii> vii;
 const int p = 1e9 + 7;
 const int mod = 998244353;
 const int N = 1e5 + 5;
-int quick_pow(int x, int n, int mod) {
+int quick_pow(int a, int b, int mod) {
     int res = 1;
-    while (n > 0) {
-        if (n & 1) res = res * x % mod;
-        x = x * x % mod;
-        n >>= 1;
+    while (b) {
+        if (b & 1) res = res * a % mod;
+        a = a * a % mod;
+        b >>= 1;
     }
     return res;
 }

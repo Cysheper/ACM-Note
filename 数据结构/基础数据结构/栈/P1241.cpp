@@ -5,12 +5,8 @@ using ll = long long;
 
 
 void solve() {
-    pair<pair<int, int>, int> q = {{1, 2}, 2};
-
+    int n; cin >> n;
     
-
-
-
 }
 
 signed main() {
